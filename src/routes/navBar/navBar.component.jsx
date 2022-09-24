@@ -10,9 +10,6 @@ const NavBar = () => {
                 <Link className='nav-link' to='/trabajadores'>
                     <samp>Trabajadores</samp>
                 </Link>
-                <Link className='nav-link' to='/hoteles'>
-                    <samp>Hoteles</samp>
-                </Link>
                 <Link className='nav-link' to='/destinos'>
                     <samp>Destinos</samp>
                 </Link>
