@@ -15,7 +15,7 @@ const defaultFormFields = {
 const ClientesForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { nombreDelCliente, id, email, telefono, tipoDeTarjeta} = formFields;
-    const { clienteAgregado, clientes } = useContext(ClientesContext);
+    const { clienteAgregado } = useContext(ClientesContext);
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -33,11 +33,10 @@ const ClientesForm = () => {
         );
     }
 
-    const agregarCliente = () => {
-            console.log(createObject(nombreDelCliente,id,email,telefono,tipoDeTarjeta));
-            clienteAgregado(createObject(nombreDelCliente,id,email,telefono,tipoDeTarjeta));
-            console.log(clientes);
-            resetFormFields();
+    const agregarCliente = (event) => {
+        event.preventDefault();
+        clienteAgregado(createObject(nombreDelCliente,id,email,telefono,tipoDeTarjeta));
+        resetFormFields();
     }
 
     const handleChange = (event) => {

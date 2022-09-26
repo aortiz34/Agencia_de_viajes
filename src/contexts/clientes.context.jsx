@@ -3,7 +3,8 @@ import { createContext, useState } from "react";
 const agregarCliente = (clientes, clienteToAdd) => {
     const existeCliente = clientes.find((cliente) => cliente.id === clienteToAdd.id);
     if (existeCliente){
-        return 'Este cliente ya ha sido registrado';
+        console.log('Este cliente ya ha sido registrado')
+        return [...clientes];
     }
     return [ ...clientes, 
         {
@@ -16,9 +17,22 @@ const agregarCliente = (clientes, clienteToAdd) => {
     ]
 }
 
+const editarCliente = (clientes, clienteToEdit) => {
+    return clientes.map((cliente) => cliente.id === clienteToEdit.id ?
+    {...cliente, 
+        nombreDelCliente:clienteToEdit.nombreDelCliente, 
+        id:clienteToEdit.id,
+        email:clienteToEdit.email,
+        telefono:clienteToEdit.telefono,
+        tipoDeTarjeta:clienteToEdit.tipoDeTarjeta
+    } : cliente
+    )
+}
+
 export const ClientesContext = createContext({
     clientes: [],
-    clienteAgregado: () => {}
+    clienteAgregado: () => {},
+    clienteEditado: () => {}
 });
 
 export const ClientesProvider = ({children}) => {
@@ -59,7 +73,11 @@ export const ClientesProvider = ({children}) => {
         setClientes(agregarCliente(clientes, clienteToAdd));
     };
 
-    const value = {clientes, clienteAgregado};
+    const clienteEditado = (clienteToEdit) => {
+        setClientes(editarCliente(clientes,clienteToEdit));
+    };
+
+    const value = {clientes, clienteAgregado, clienteEditado};
 
     return <ClientesContext.Provider value={value}>{children}</ClientesContext.Provider>
 }
