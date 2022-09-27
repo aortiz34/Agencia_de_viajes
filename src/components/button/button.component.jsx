@@ -1,9 +1,9 @@
 
 
-const Button = ({ children, ...otherProps  }) => {
-    return(
+const Button = ({ children, ...otherProps }) => {
+    return (
         <button className={`button-container`}
-        {...otherProps}>
+            {...otherProps}>
             {children}
         </button>
     )

@@ -1,21 +1,24 @@
 import { useContext } from "react";
 import { ClientesContext } from "../../contexts/clientes.context";
+import { Link } from "react-router-dom";
 
-import ClientesForm from "../../components/clientes-form/clientes-form.component";
+import Button from "../../components/button/button.component";
 import ClienteCard from "../../components/cliente-card/cliente-card.component";
 
 const Clientes = () => {
 
-    const {clientes} = useContext(ClientesContext);
+    const { clientes } = useContext(ClientesContext);
 
-    return(
+    return (
         <div>
-            <ClientesForm/>
-             <div className="clientes-catalogue-container">
-            {clientes.map((cliente) => (
-                <ClienteCard key={cliente.id} cliente={cliente}/>
-            ))}
-        </div>
+            <Button>
+                <Link to="agregar-cliente">Agregar nuevo empleado</Link>
+            </Button>
+            <div className="clientes-catalogue-container">
+                {clientes.map((cliente) => (
+                    <ClienteCard key={cliente.id} cliente={cliente} />
+                ))}
+            </div>
         </div>
     );
 };
