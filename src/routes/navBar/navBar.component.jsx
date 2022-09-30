@@ -7,8 +7,8 @@ const NavBar = () => {
     return (
         <Fragment>
             <div className='navBar'>
-                <Link className='nav-link' to='/trabajadores'>
-                    <samp>Trabajadores</samp>
+                <Link className='nav-link' to='/empleados'>
+                    <samp>Empleados</samp>
                 </Link>
                 <Link className='nav-link' to='/destinos'>
                     <samp>Destinos</samp>

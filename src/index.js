@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ClientesProvider } from './contexts/clientes.context';
+import { EmpleadosProvider } from './contexts/empleados.context';
+import { DestinosProvider } from './contexts/destinos.context';
 
 import './index.scss';
 import App from './App';
@@ -11,9 +13,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ClientesProvider>
-        <App />
-      </ClientesProvider>
+      <DestinosProvider>
+        <EmpleadosProvider>
+          <ClientesProvider>
+            <App />
+          </ClientesProvider>
+        </EmpleadosProvider>
+      </DestinosProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
