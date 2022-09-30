@@ -24,11 +24,11 @@ const ClienteCard = ({ cliente }) => {
             <div className="cliente-card-actions">
                 <Link to={`/clientes/editar-cliente/${id}`}>
                     <Button className="cliente-card-actions-button" tabIndex="-1">
-                        <img className="cliente-card-actions-img" src={pencil} title="Editar empleado" alt="Un lápiz"/>
+                        <img className="cliente-card-actions-img" src={pencil} title="Editar cliente" alt="Un lápiz"/>
                     </Button>
                 </Link>
                 <Button className="cliente-card-actions-button" onClick={() => clienteEliminado(cliente)}>
-                    <img className="cliente-card-actions-img" src={trashCan} title="Eliminar empleado" alt="Un bote de basura"/>
+                    <img className="cliente-card-actions-img" src={trashCan} title="Eliminar cliente" alt="Un bote de basura"/>
                 </Button>
             </div>
         </div>

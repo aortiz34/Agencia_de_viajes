@@ -17,7 +17,6 @@
     >span {
       display: inline-block;
     }
-
   }
 
   &-id {
@@ -48,6 +47,8 @@
 
   &-actions {
     display: flex;
+    align-items: center;
+    align-self: stretch;
     gap: 0.125rem;
     padding: 0.125rem 0;
 

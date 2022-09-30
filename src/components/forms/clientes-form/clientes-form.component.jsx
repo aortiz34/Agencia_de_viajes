@@ -46,13 +46,13 @@ const ClientesForm = () => {
     const agregarCliente = (event) => {
         event.preventDefault();
         clienteAgregado(createObject(nombreDelCliente, id, email, telefono, tipoDeTarjeta));
-        navigate('/');
+        navigate('/clientes');
     };
 
     const editarCliente = (event) => {
         event.preventDefault();
         clienteEditado(currCliente, createObject(nombreDelCliente, id, email, telefono, tipoDeTarjeta));
-        navigate('/');
+        navigate('/clientes');
     };
 
     const handleChange = (event) => {
