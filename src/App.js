@@ -16,7 +16,7 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="clientes" element={<Clientes />} />
         <Route path="clientes/agregar-cliente" element={<ClientesForm />} />
-        <Route path="editar-cliente/:idCliente" element={<ClientesForm />} />
+        <Route path="clientes/editar-cliente/:idCliente" element={<ClientesForm />} />
         <Route path="destinos" element={<Destinos />} />
         <Route path="destinos/agregar-destino" element={<DestinosForm />} />
         <Route path="destinos/editar-destino/:idDestino" element={<DestinosForm />} />

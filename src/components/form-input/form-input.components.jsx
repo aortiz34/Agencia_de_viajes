@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 import './form-input.styles.scss';
-import eye from './eye.svg';
+import eye from '../../assets/eye.svg';
 
 const FormInput = ({ label, ...otherProps }) => {
     const element = useRef();

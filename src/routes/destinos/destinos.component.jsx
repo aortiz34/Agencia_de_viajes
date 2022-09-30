@@ -11,9 +11,11 @@ const Destinos = () => {
 
     return (
         <div>
-            <Button>
-                <Link to="agregar-destino">Agregar nuevo Destino</Link>
-            </Button>
+            <Link to="agregar-destino">
+                <Button>
+                    Agregar nuevo Destino
+                </Button>
+            </Link>
             <div className="destinos-catalogue-container">
                 {destinos.map((destino) => (
                     <DestinoCard key={destino.idDestino} destino={destino} />

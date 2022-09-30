@@ -12,13 +12,15 @@ const Empleados = () => {
 
     return (
         <div>
-            <Button>
-                <Link to="agregar-empleado">Agregar nuevo trabajador</Link>
-            </Button>
+            <Link to="agregar-empleado">
+                <Button>
+                    Agregar nuevo trabajador
+                </Button>
+            </Link>
             <div className="empleados-catalogue-container">
                 {empleados.map((empleado) => (
                     <EmpleadoCard key={empleado.idEmpleado} empleado={empleado} />
-                ))} 
+                ))}
             </div>
         </div>
     );
