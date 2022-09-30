@@ -4,22 +4,24 @@ import Clientes from './routes/clientes/clientes.component';
 import Destinos from './routes/destinos/destinos.component';
 import Hoteles from './routes/hoteles/hoteles.component';
 import Empleados from './routes/empleados/empleados.component';
-import ClientesForm from './components/clientes-form/clientes-form.component';
-import EmpleadosForm from './components/empleados-form/empleados-form.component';
-import DestinosForm from './components/destinos-form/destinos-form.component';
+import ClientesForm from './components/forms/clientes-form/clientes-form.component';
+import EmpleadosForm from './components/forms/empleados-form/empleados-form.component';
+import DestinosForm from './components/forms/destinos-form/destinos-form.component';
+import Home from './routes/Home/Home';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<NavBar />}>
-        <Route index element={<Clientes />} />
-        <Route path="agregar-cliente" element={<ClientesForm />} />
+        <Route index element={<Home />} />
+        <Route path="clientes" element={<Clientes />} />
+        <Route path="clientes/agregar-cliente" element={<ClientesForm />} />
         <Route path="editar-cliente/:idCliente" element={<ClientesForm />} />
-        <Route path='destinos' element={<Destinos />} />
+        <Route path="destinos" element={<Destinos />} />
         <Route path="destinos/agregar-destino" element={<DestinosForm />} />
         <Route path="destinos/editar-destino/:idDestino" element={<DestinosForm />} />
-        <Route path='hoteles' element={<Hoteles />} />
-        <Route path='empleados' element={<Empleados />} />
+        <Route path="hoteles" element={<Hoteles />} />
+        <Route path="empleados" element={<Empleados />} />
         <Route path="empleados/agregar-empleado" element={<EmpleadosForm />} />
         <Route path="empleados/editar-empleado/:idEmpleado" element={<EmpleadosForm />} />
       </Route>

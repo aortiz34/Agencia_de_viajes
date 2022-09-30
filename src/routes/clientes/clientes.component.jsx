@@ -12,7 +12,7 @@ const Clientes = () => {
     return (
         <div>
             <Button>
-                <Link to="agregar-cliente">Agregar nuevo Cliente</Link>
+                <Link to="/clientes/agregar-cliente">Agregar nuevo Cliente</Link>
             </Button>
             <div className="clientes-catalogue-container">
                 {clientes.map((cliente) => (

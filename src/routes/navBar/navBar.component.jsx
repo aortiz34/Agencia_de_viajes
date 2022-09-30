@@ -1,22 +1,24 @@
 import { Fragment } from 'react';
-import {Outlet, Link} from 'react-router-dom';
+import {Outlet, NavLink} from 'react-router-dom';
 
 import './navBar.styles.scss';
 
 const NavBar = () => {
     return (
         <Fragment>
-            <div className='navBar'>
-                <Link className='nav-link' to='/empleados'>
-                    <samp>Empleados</samp>
-                </Link>
-                <Link className='nav-link' to='/destinos'>
-                    <samp>Destinos</samp>
-                </Link>
-                <Link className='nav-link' to='/'>
-                    <samp>Clientes</samp>
-                </Link>
-            </div>
+            <nav className="navbar">
+                <div className="navbar-content container">
+                    <NavLink className="navbar-link" to="/empleados">
+                        <span>Empleados</span>
+                    </NavLink>
+                    <NavLink className="navbar-link" to="/destinos">
+                        <span>Destinos</span>
+                    </NavLink>
+                    <NavLink className="navbar-link" to="/clientes">
+                        <span>Clientes</span>
+                    </NavLink>
+                </div>
+            </nav>
             <Outlet />
         </Fragment>
     );
