@@ -1,54 +1,124 @@
-$sub-color: grey;
-$main-color: black;
-
 @mixin shrinkLabel {
-  top: -14px;
-  font-size: 12px;
-  color: $main-color;
+  top: -0.25rem;
+  left: 0;
+  font-size: 0.75rem;
+  transform: translateY(-100%);
+  color: var(--clr-white);
 }
 
 .group {
   position: relative;
-  margin: 45px 0;
+
+  +.group {
+    margin-top: 3rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: var(--clr-dark-violet);
+    height: 2px;
+    width: 100%;
+    transform: scaleX(0);
+    transition: transform 350ms;
+    transform-origin: 100%;
+    left: 0;
+    bottom: 0;
+  }
+
+  &.active {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: 0%;
+    }
+  }
 
   .form-input {
-    background: none;
-    background-color: white;
-    color: $sub-color;
-    font-size: 18px;
-    padding: 10px 10px 10px 5px;
     display: block;
+    background-color: white;
+    color: var(--clr-gray);
+    font-size: 1.125rem;
+    padding: 0.625rem var(--padding-right) 0.625rem 0.25rem;
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid $sub-color;
-    margin: 25px 0;
+    margin: 1.5rem 0;
 
     &:focus {
       outline: none;
+
+      ~.form-input-label {
+        @include shrinkLabel();
+      }
     }
 
-    &:focus ~ .form-input-label {
-      @include shrinkLabel();
+    &-label {
+      color: var(--clr-dark);
+      font-size: 1rem;
+      font-weight: 300;
+      position: absolute;
+      pointer-events: none;
+      left: 0.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 300ms ease;
+
+      &.shrink {
+        @include shrinkLabel();
+      }
+    }
+
+    &-toggler {
+      position: absolute;
+      width: 1.875rem;
+      height: auto;
+      cursor: pointer;
+      top: 50%;
+      left: 100%;
+      transform: translate(-2.25rem, -50%);
+    }
+
+    &:-webkit-autofill,
+    &:autofill {
+      font-size: 1.125rem;
+
+      ~label {
+        @include shrinkLabel();
+      }
     }
   }
 
-  input[type='password'] {
-    letter-spacing: 0.3em;
+  input[type="password"] {
+    letter-spacing: 0.25rem;
+  }
+}
+
+.empleados-form-container,
+.clientes-form-container,
+.destinos-form-container {
+  .group+.group {
+    margin-top: 1.75rem;
   }
 
-  .form-input-label {
-    color: $sub-color;
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 300ms ease all;
+  .form-input {
+    margin: 0;
+    border: 1px solid var(--clr-light-gray);
 
-    &.shrink {
-      @include shrinkLabel();
+    &:focus {
+      ~.form-input-label {
+        color: var(--clr-dark-violet);
+      }
+    }
+
+    &:-webkit-autofill,
+    &:autofill {
+      ~label {
+        color: var(--clr-dark-violet);
+      }
+    }
+
+    &-label.shrink {
+      color: var(--clr-dark-violet);
     }
   }
 }
