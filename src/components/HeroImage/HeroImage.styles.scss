@@ -1,0 +1,23 @@
+.hero-image {
+  &-wrapper {
+    background-color: var(--clr-dark-violet);
+    display: flex;
+    flex-grow: 1;
+  }
+
+  background:
+    url('https://wallpaperaccess.com/full/726.jpg'),
+    // url('https://i.imgur.com/B0MQted.jpg'),
+    var(--clr-dark-violet);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: multiply;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
