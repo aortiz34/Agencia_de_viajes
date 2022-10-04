@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import FormInput from '../form-input/form-input.components.jsx';
 import Button from '../button/button.component.jsx';
+import { SessionContext } from '../../contexts/SessionContext.js';
 
 import './Login.styles.scss';
 
 export default function Login() {
   const [state, setState] = useState({ email: "", password: "" });
+  const {login} = useContext(SessionContext);
 
   function handleChange(evt) {
     setState(prevState => ({
@@ -16,6 +18,7 @@ export default function Login() {
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    login(state.email, state.password);
   }
 
   return (

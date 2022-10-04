@@ -8,24 +8,27 @@ import ClientesForm from './components/forms/clientes-form/clientes-form.compone
 import EmpleadosForm from './components/forms/empleados-form/empleados-form.component';
 import DestinosForm from './components/forms/destinos-form/destinos-form.component';
 import Home from './routes/Home/Home';
+import { SessionProvider } from './contexts/SessionContext';
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<NavBar />}>
-        <Route index element={<Home />} />
-        <Route path="clientes" element={<Clientes />} />
-        <Route path="clientes/agregar-cliente" element={<ClientesForm />} />
-        <Route path="clientes/editar-cliente/:idCliente" element={<ClientesForm />} />
-        <Route path="destinos" element={<Destinos />} />
-        <Route path="destinos/agregar-destino" element={<DestinosForm />} />
-        <Route path="destinos/editar-destino/:idDestino" element={<DestinosForm />} />
-        <Route path="hoteles" element={<Hoteles />} />
-        <Route path="empleados" element={<Empleados />} />
-        <Route path="empleados/agregar-empleado" element={<EmpleadosForm />} />
-        <Route path="empleados/editar-empleado/:idEmpleado" element={<EmpleadosForm />} />
-      </Route>
-    </Routes>
+    <SessionProvider>
+      <Routes>
+        <Route path="/" element={<NavBar />}>
+          <Route index element={<Home />} />
+          <Route path="clientes" element={<Clientes />} />
+          <Route path="clientes/agregar-cliente" element={<ClientesForm />} />
+          <Route path="clientes/editar-cliente/:idCliente" element={<ClientesForm />} />
+          <Route path="destinos" element={<Destinos />} />
+          <Route path="destinos/agregar-destino" element={<DestinosForm />} />
+          <Route path="destinos/editar-destino/:idDestino" element={<DestinosForm />} />
+          <Route path="hoteles" element={<Hoteles />} />
+          <Route path="empleados" element={<Empleados />} />
+          <Route path="empleados/agregar-empleado" element={<EmpleadosForm />} />
+          <Route path="empleados/editar-empleado/:idEmpleado" element={<EmpleadosForm />} />
+        </Route>
+      </Routes>
+    </SessionProvider>
   );
 };
 
