@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const agregarDestino = (destinos, destinoToAdd) => {
     const existeDestino = destinos.find((destino) => {
@@ -63,31 +63,31 @@ export const DestinosContext = createContext({
     destinoEliminado: () => { },
 });
 
+const destinosArray = [
+    {
+        nombreDelDestino: 'Cancun',
+        idDestino: '1',
+        codigoPostal: '28100',
+    },
+    {
+        nombreDelDestino: 'Tapalpa',
+        idDestino: '2',
+        codigoPostal: '27000',
+    },
+    {
+        nombreDelDestino: 'Mazamitla',
+        idDestino: '3',
+        codigoPostal: '29000',
+    },
+    {
+        nombreDelDestino: 'Manzanillo',
+        idDestino: '4',
+        codigoPostal: '40000',
+    }
+];
+
 export const DestinosProvider = ({ children }) => {
-    const [destinos, setDestinos] = useState(
-        [
-            {
-                nombreDelDestino: 'Cancun',
-                idDestino: '1',
-                codigoPostal: '28100',
-            },
-            {
-                nombreDelDestino: 'Tapalpa',
-                idDestino: '2',
-                codigoPostal: '27000',
-            },
-            {
-                nombreDelDestino: 'Mazamitla',
-                idDestino: '3',
-                codigoPostal: '29000',
-            },
-            {
-                nombreDelDestino: 'Manzanillo',
-                idDestino: '4',
-                codigoPostal: '40000',
-            }
-        ]
-    );
+    const [destinos, setDestinos] = useState(JSON.parse(localStorage.getItem('destinos')) ?? destinosArray);
 
     const destinoAgregado = (destinoToAdd) => {
         setDestinos(agregarDestino(destinos, destinoToAdd));
@@ -100,6 +100,10 @@ export const DestinosProvider = ({ children }) => {
     const destinoEliminado = (destinoToDelete) => {
         setDestinos(removerDestino(destinos, destinoToDelete));
     };
+
+    useEffect(() => {
+        localStorage.setItem('destinos', JSON.stringify(destinos));
+    }, [destinos]);
 
     const value = { destinos, destinoAgregado, destinoEditado, destinoEliminado };
 

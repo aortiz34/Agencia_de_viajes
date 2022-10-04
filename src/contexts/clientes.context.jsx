@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const agregarCliente = (clientes, clienteToAdd) => {
     const existeCliente = clientes.find((cliente) => {
@@ -67,39 +67,39 @@ export const ClientesContext = createContext({
     clienteEliminado: () => { },
 });
 
+const clientesArray = [
+    {
+        nombreDelCliente: 'Juan',
+        id: '1',
+        email: 'a@a.a',
+        telefono: '34112341',
+        tipoDeTarjeta: 'debito'
+    },
+    {
+        nombreDelCliente: 'Federico',
+        id: '2',
+        email: 'b@b.b',
+        telefono: '332345234',
+        tipoDeTarjeta: 'credito'
+    },
+    {
+        nombreDelCliente: 'Gustavo',
+        id: '3',
+        email: 'c@c.c',
+        telefono: '3412345324',
+        tipoDeTarjeta: 'debito'
+    },
+    {
+        nombreDelCliente: 'Pedro',
+        id: '4',
+        email: 'p@p.p',
+        telefono: '452452234',
+        tipoDeTarjeta: 'credito'
+    }
+];
+
 export const ClientesProvider = ({ children }) => {
-    const [clientes, setClientes] = useState(
-        [
-            {
-                nombreDelCliente: 'Juan',
-                id: '1',
-                email: 'a@a.a',
-                telefono: '34112341',
-                tipoDeTarjeta: 'debito'
-            },
-            {
-                nombreDelCliente: 'Federico',
-                id: '2',
-                email: 'b@b.b',
-                telefono: '332345234',
-                tipoDeTarjeta: 'credito'
-            },
-            {
-                nombreDelCliente: 'Gustavo',
-                id: '3',
-                email: 'c@c.c',
-                telefono: '3412345324',
-                tipoDeTarjeta: 'debito'
-            },
-            {
-                nombreDelCliente: 'Pedro',
-                id: '4',
-                email: 'p@p.p',
-                telefono: '452452234',
-                tipoDeTarjeta: 'credito'
-            }
-        ]
-    );
+    const [clientes, setClientes] = useState(JSON.parse(localStorage.getItem('clientes')) ?? clientesArray);
 
     const clienteAgregado = (clienteToAdd) => {
         setClientes(agregarCliente(clientes, clienteToAdd));
@@ -112,6 +112,10 @@ export const ClientesProvider = ({ children }) => {
     const clienteEliminado = (clienteToDelete) => {
         setClientes(removerCliente(clientes, clienteToDelete));
     };
+
+    useEffect(() => {
+        localStorage.setItem('clientes', JSON.stringify(clientes));
+    }, [clientes]);
 
     const value = { clientes, clienteAgregado, clienteEditado, clienteEliminado };
 

@@ -26,7 +26,7 @@ export function SessionProvider({ children }) {
   const [state, setState] = useState({
     isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) ?? false,
     message: '',
-    username: '',
+    username: JSON.parse(localStorage.getItem('username')) ?? '',
     logout: () => sessionLogout(setState),
     setMessage: (text) => setSessionMessage(text, setState),
   });
@@ -53,6 +53,7 @@ export function SessionProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('isLoggedIn', state.isLoggedIn);
+    localStorage.setItem('username', JSON.stringify(state.username));
   }, [state]);
 
 

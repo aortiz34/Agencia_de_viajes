@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const agregarEmpleado = (empleados, empleadoToAdd) => {
     const existeEmpleado = empleados.find((empleado) => {
@@ -67,39 +67,39 @@ export const EmpleadosContext = createContext({
     empleadoEliminado: () => { },
 });
 
+const empleadosArray = [
+    {
+        nombreDelEmpleado: 'Juan',
+        idEmpleado: '1',
+        emailE: 'a@a.a',
+        telefonoE: '34112341',
+        area: 'Servicio al cliente'
+    },
+    {
+        nombreDelEmpleado: 'Federico',
+        idEmpleado: '2',
+        emailE: 'b@b.b',
+        telefonoE: '332345234',
+        area: 'Promocion de destinos'
+    },
+    {
+        nombreDelEmpleado: 'Gustavo',
+        idEmpleado: '3',
+        emailE: 'c@c.c',
+        telefonoE: '3412345324',
+        area: 'Marketing'
+    },
+    {
+        nombreDelEmpleado: 'Pedro',
+        idEmpleado: '4',
+        emailE: 'p@p.p',
+        telefonoE: '452452234',
+        area: 'Mantenimiento de página'
+    }
+];
+
 export const EmpleadosProvider = ({ children }) => {
-    const [empleados, setempleados] = useState(
-        [
-            {
-                nombreDelEmpleado: 'Juan',
-                idEmpleado: '1',
-                emailE: 'a@a.a',
-                telefonoE: '34112341',
-                area: 'Servicio al cliente'
-            },
-            {
-                nombreDelEmpleado: 'Federico',
-                idEmpleado: '2',
-                emailE: 'b@b.b',
-                telefonoE: '332345234',
-                area: 'Promocion de destinos'
-            },
-            {
-                nombreDelEmpleado: 'Gustavo',
-                idEmpleado: '3',
-                emailE: 'c@c.c',
-                telefonoE: '3412345324',
-                area: 'Marketing'
-            },
-            {
-                nombreDelEmpleado: 'Pedro',
-                idEmpleado: '4',
-                emailE: 'p@p.p',
-                telefonoE: '452452234',
-                area: 'Mantenimiento de página'
-            }
-        ]
-    );
+    const [empleados, setempleados] = useState(JSON.parse(localStorage.getItem('empleados')) ?? empleadosArray);
 
     const empleadoAgregado = (empleadoToAdd) => {
         setempleados(agregarEmpleado(empleados, empleadoToAdd));
@@ -112,6 +112,10 @@ export const EmpleadosProvider = ({ children }) => {
     const empleadoEliminado = (empleadoToDelete) => {
         setempleados(removerEmpleado(empleados, empleadoToDelete));
     };
+
+    useEffect(() => {
+        localStorage.setItem('empleados', JSON.stringify(empleados));
+    }, [empleados]);
 
     const value = { empleados, empleadoAgregado, empleadoEditado, empleadoEliminado };
 
