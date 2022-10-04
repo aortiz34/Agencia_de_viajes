@@ -8,6 +8,7 @@ import ClientesForm from './components/forms/clientes-form/clientes-form.compone
 import EmpleadosForm from './components/forms/empleados-form/empleados-form.component';
 import DestinosForm from './components/forms/destinos-form/destinos-form.component';
 import Home from './routes/Home/Home';
+import ProtectedRoute from './routes/ProtectedRoute/ProtectedRoute';
 import { SessionProvider } from './contexts/SessionContext';
 
 const App = () => {
@@ -16,16 +17,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
-          <Route path="clientes" element={<Clientes />} />
-          <Route path="clientes/agregar-cliente" element={<ClientesForm />} />
-          <Route path="clientes/editar-cliente/:idCliente" element={<ClientesForm />} />
-          <Route path="destinos" element={<Destinos />} />
-          <Route path="destinos/agregar-destino" element={<DestinosForm />} />
-          <Route path="destinos/editar-destino/:idDestino" element={<DestinosForm />} />
-          <Route path="hoteles" element={<Hoteles />} />
-          <Route path="empleados" element={<Empleados />} />
-          <Route path="empleados/agregar-empleado" element={<EmpleadosForm />} />
-          <Route path="empleados/editar-empleado/:idEmpleado" element={<EmpleadosForm />} />
+          <Route path="clientes" element={<ProtectedRoute><Clientes /></ProtectedRoute>} />
+          <Route path="clientes/agregar-cliente" element={<ProtectedRoute><ClientesForm /></ProtectedRoute>} />
+          <Route path="clientes/editar-cliente/:idCliente" element={<ProtectedRoute><ClientesForm /></ProtectedRoute>} />
+          <Route path="destinos" element={<ProtectedRoute><Destinos /></ProtectedRoute>} />
+          <Route path="destinos/agregar-destino" element={<ProtectedRoute><DestinosForm /></ProtectedRoute>} />
+          <Route path="destinos/editar-destino/:idDestino" element={<ProtectedRoute><DestinosForm /></ProtectedRoute>} />
+          <Route path="hoteles" element={<ProtectedRoute><Hoteles /></ProtectedRoute>} />
+          <Route path="empleados" element={<ProtectedRoute><Empleados /></ProtectedRoute>} />
+          <Route path="empleados/agregar-empleado" element={<ProtectedRoute><EmpleadosForm /></ProtectedRoute>} />
+          <Route path="empleados/editar-empleado/:idEmpleado" element={<ProtectedRoute><EmpleadosForm /></ProtectedRoute>} />
         </Route>
       </Routes>
     </SessionProvider>
