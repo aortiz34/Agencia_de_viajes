@@ -83,7 +83,67 @@ const destinosArray = [
         nombreDelDestino: 'Manzanillo',
         idDestino: '4',
         codigoPostal: '40000',
-    }
+    },
+    {
+        nombreDelDestino: 'Guadalajara',
+        idDestino: '5',
+        codigoPostal: '12300',
+    },
+    {
+        nombreDelDestino: 'Playa del Carmen',
+        idDestino: '6',
+        codigoPostal: '54000',
+    },
+    {
+        nombreDelDestino: 'Yucatan',
+        idDestino: '7',
+        codigoPostal: '87000',
+    },
+    {
+        nombreDelDestino: 'Mazatlan',
+        idDestino: '8',
+        codigoPostal: '67000',
+    },
+    {
+        nombreDelDestino: 'Cabos',
+        idDestino: '9',
+        codigoPostal: '32200',
+    },
+    {
+        nombreDelDestino: 'Guanajuato',
+        idDestino: '10',
+        codigoPostal: '49087',
+    },
+    {
+        nombreDelDestino: 'La Paz',
+        idDestino: '11',
+        codigoPostal: '13809',
+    },
+    {
+        nombreDelDestino: 'NewYork',
+        idDestino: '12',
+        codigoPostal: '90000',
+    },
+    {
+        nombreDelDestino: 'Chicago',
+        idDestino: '13',
+        codigoPostal: '78320',
+    },
+    {
+        nombreDelDestino: 'Everet',
+        idDestino: '14',
+        codigoPostal: '69060',
+    },
+    {
+        nombreDelDestino: 'Las Vegas',
+        idDestino: '15',
+        codigoPostal: '23400',
+    },
+    {
+        nombreDelDestino: 'Miami',
+        idDestino: '16',
+        codigoPostal: '60000',
+    },
 ];
 
 export const DestinosProvider = ({ children }) => {
