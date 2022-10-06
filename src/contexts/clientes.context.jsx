@@ -69,30 +69,86 @@ export const ClientesContext = createContext({
 
 const clientesArray = [
     {
-        nombreDelCliente: 'Juan',
+        nombreDelCliente: 'Juan Campos Ruiz',
         id: '1',
-        email: 'a@a.a',
+        email: 'juan@hotmail.com',
         telefono: '34112341',
         tipoDeTarjeta: 'debito'
     },
     {
-        nombreDelCliente: 'Federico',
+        nombreDelCliente: 'Federico Ocampo Fernandez',
         id: '2',
-        email: 'b@b.b',
+        email: 'federico@hotmail.com',
         telefono: '332345234',
         tipoDeTarjeta: 'credito'
     },
     {
-        nombreDelCliente: 'Gustavo',
+        nombreDelCliente: 'Gustavo Díaz Frias',
         id: '3',
-        email: 'c@c.c',
+        email: 'gustavo@gmail.com',
         telefono: '3412345324',
         tipoDeTarjeta: 'debito'
     },
     {
-        nombreDelCliente: 'Pedro',
+        nombreDelCliente: 'Pedro Gilberto Gonzales Pineda',
         id: '4',
-        email: 'p@p.p',
+        email: 'pedro@gmail.com',
+        telefono: '452452234',
+        tipoDeTarjeta: 'credito'
+    },
+    {
+        nombreDelCliente: 'Luis López Péres',
+        id: '5',
+        email: 'Luis@hotmail.com',
+        telefono: '342412341',
+        tipoDeTarjeta: 'debito'
+    },
+    {
+        nombreDelCliente: 'Sergío Pérez Campos',
+        id: '6',
+        email: 'sp@hotmail.com',
+        telefono: '332345234',
+        tipoDeTarjeta: 'credito'
+    },
+    {
+        nombreDelCliente: 'Tiburcio Jiménez',
+        id: '7',
+        email: 'tibu@gmail.com',
+        telefono: '3412345324',
+        tipoDeTarjeta: 'debito'
+    },
+    {
+        nombreDelCliente: 'Guillermo Hernandez Soto',
+        id: '8',
+        email: 'memo@gmail.com',
+        telefono: '452452234',
+        tipoDeTarjeta: 'credito'
+    },
+    {
+        nombreDelCliente: 'Hugo Cedrun Gallardo',
+        id: '9',
+        email: 'hugo@hotmail.com',
+        telefono: '34112341',
+        tipoDeTarjeta: 'debito'
+    },
+    {
+        nombreDelCliente: 'Felipe Mendez Pineda',
+        id: '10',
+        email: 'felipe@hotmail.com',
+        telefono: '332345234',
+        tipoDeTarjeta: 'credito'
+    },
+    {
+        nombreDelCliente: 'Raul Ernesto Gómez Cevilla',
+        id: '11',
+        email: 'cevilla@gmail.com',
+        telefono: '3412345324',
+        tipoDeTarjeta: 'debito'
+    },
+    {
+        nombreDelCliente: 'Maximiliano Bernardo Arias García',
+        id: '12',
+        email: 'max@gmail.com',
         telefono: '452452234',
         tipoDeTarjeta: 'credito'
     }
